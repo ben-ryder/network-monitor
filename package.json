@@ -1,0 +1,17 @@
+{
+  "name": "speedtest",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "dependencies": {
+    "express": "~4.16.1",
+    "mysql": "^2.18.1",
+    "node-cron": "^2.0.3",
+    "nunjucks": "^3.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}

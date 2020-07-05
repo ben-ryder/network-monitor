@@ -1,0 +1,11 @@
+{
+  "database": {
+    "host": "localhost",
+    "user": "speedtest-user",
+    "password": "speedtest-password",
+    "database": "speedtest"
+  },
+  "speed_test": {
+    "cron_setting": "*/15 * * * *"
+  }
+}
