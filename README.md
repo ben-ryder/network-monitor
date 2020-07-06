@@ -15,3 +15,7 @@ mysql (mariadb)
 for ubuntu/raspbian you can use systemd and define a new service.
 
 ## Development
+
+broswer-sync  
+nodemon  
+gulp

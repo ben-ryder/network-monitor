@@ -10,3 +10,5 @@ document.querySelector("#filterForm").addEventListener('submit', (e) => {
         return false;
     }
 })
+
+console.log("hello")

@@ -16,8 +16,7 @@ nunjucks.configure('templates', {
 });
 
 // Resource directories
-app.use('/css',express.static(__dirname +'/css'));
-app.use('/js',express.static(__dirname +'/js'));
+app.use(express.static(__dirname +'/dist'));
 
 // Routes
 app.use(express.json());
@@ -39,8 +38,8 @@ app.use(function (req, res, next) {
 })
 
 // Start server listening for requests
-app.listen(3000, () => {
-  console.log("Server started. Listening on http://localhost:3000")
+app.listen(config.port, () => {
+  console.log(`Server started. Listening on http://localhost:${config.port}`)
 });
 
 // Starting speedtest-cli cron task.
