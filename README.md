@@ -7,6 +7,21 @@ The results can them be viewed and filtered on the site in a list or graph forma
 **Prerequisites**  
 speedtest-cli
 
+** mysql /mariadb **
+- install mysql/mariadb
+- `CREATE USER 'speedtest-user'@'localhost' IDENTIFIED BY 'speedtest-password';`
+- `CREATE DATABASE speedtest;`
+- `USE speedtest;`
+```
+CREATE TABLE tests (
+    column1 datatype,
+    column2 datatype,
+    column3 datatype,
+   ....
+);
+```
+
+
 mysql (mariadb)
 + must provide user details + host to config.
 + database & table made when the server starts (if it doesnt exist)
