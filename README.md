@@ -1,4 +1,4 @@
-# internet-monitor
+# network-monitor
 A simple website built with nodejs, expressJS and mysql to automatically measure your network speeds.
 The results can them be viewed and filtered on the site in a list or graph format.
 
@@ -13,11 +13,14 @@ speedtest-cli
 - `CREATE DATABASE speedtest;`
 - `USE speedtest;`
 ```
-CREATE TABLE tests (
-    column1 datatype,
-    column2 datatype,
-    column3 datatype,
-   ....
+CREATE TABLE [IF NOT EXISTS] tests (
+    id INT NOT NULL AUTO_INCREMENT,
+    date DATE NOT NULL,
+    time TIME NOT NULL,
+    ping DECIMAL(4,2) NOT NULL,
+    download DECIMAL(4,2) NOT NULL,
+    upload DECIMAL(4,2) NOT NULL,
+    PRIMARY KEY (id)
 );
 ```
 
