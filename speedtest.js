@@ -20,7 +20,7 @@ function bitsToMegaBits(bits) {
 }
 
 function saveResult(result){
-    let insertQuery = "INSERT INTO tests (test_date, test_time, test_ping, test_download, test_upload) VALUES (?)";
+    let insertQuery = "INSERT INTO speed_tests (test_date, test_time, ping_speed, download_speed, upload_speed) VALUES (?)";
 
     let queryData = [
         [

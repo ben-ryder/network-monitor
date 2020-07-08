@@ -13,14 +13,7 @@
 @import "atoms/input";
 @import "atoms/textarea";
 
-.test {
-  display: flex;
-  border-bottom: 1px solid #888
-}
-.test__field {
-  flex: 1;
-  text-align: center;
-}
+@import "components/test-list";
 
 code {
   white-space: pre;

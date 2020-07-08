@@ -35,7 +35,7 @@ router.get('/', function(req, res){
         filterValues.endDate = currentDateString;
         filterValues.endTime = "23:59";
     }
-    let selectQuery = "SELECT *, DATE_FORMAT(test_date, '%Y/%m/%d') as test_date FROM tests WHERE test_date BETWEEN ? AND ? AND test_time BETWEEN ? AND ? ORDER BY test_date ASC, test_time ASC";
+    let selectQuery = "SELECT *, DATE_FORMAT(test_date, '%Y/%m/%d') as test_date FROM speed_tests WHERE test_date BETWEEN ? AND ? AND test_time BETWEEN ? AND ? ORDER BY test_date ASC, test_time ASC";
     let queryData = [filterValues.startDate, filterValues.endDate, filterValues.startTime, filterValues.endTime];
 
     // Make query to insert data
