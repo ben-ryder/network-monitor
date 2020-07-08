@@ -1,11 +1,15 @@
 {
+  "port": 3000,
   "database": {
     "host": "localhost",
-    "user": "speedtest-user",
-    "password": "speedtest-password",
-    "database": "speedtest"
+    "user": "network_monitor",
+    "password": "password",
+    "database": "network_monitor"
   },
   "speed_test": {
     "cron_setting": "*/15 * * * *"
+  },
+  "development": {
+    "browserSyncPort": "5000"
   }
 }

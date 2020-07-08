@@ -56,6 +56,7 @@ CREATE TABLE IF NOT EXISTS speed_tests (
 **Project and Configuration Setup**
 - `npm install`
 - Copy `example.config.json` to `config.json` and edit if necessary.
+- Build the website with `gulp build`
 - `nodemon app` to run the application.
 
 **Running server in background**  

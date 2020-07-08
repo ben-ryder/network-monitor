@@ -86,7 +86,7 @@ gulp.task('browser-sync', gulp.series('nodemon', () => {
         browserSync.init(null, {
             proxy: `http://localhost:${config.port}`,
             files: ['./**/*.*', '!node_modules', "!dist"],
-            port: config.browserSyncPort
+            port: config.development.browserSyncPort
         });
     })
 );
