@@ -1,6 +1,7 @@
 const express = require('express');
 const nunjucks = require('nunjucks');
 const cron = require('node-cron');
+const path = require('path');
 
 const config = require('./config.json');
 const speedtest = require('./speedtest');
@@ -9,7 +10,7 @@ const app = express()
 
 // Setting up view / template engine
 app.set('view engine', 'html');
-nunjucks.configure('templates', {
+nunjucks.configure(path.join(__dirname, 'templates'), {
   autoescape: true,
   cache: false,
   express: app

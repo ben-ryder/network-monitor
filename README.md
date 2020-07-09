@@ -62,9 +62,8 @@ CREATE TABLE IF NOT EXISTS speed_tests (
 **Running server in background**  
 There are many ways to get the server to run in the background, but I use [systemd](https://systemd.io/).
 
-1. `cd /lib/systemd/system`
-2. `vim network-monitor.service`
-3 Add the following:
+1. `sudo vim /lib/systemd/system/network-monitor.service`
+2 Add the following:
 ```
 [Unit]
 Description=app.js - Website monitoring you network speeds. 
@@ -74,16 +73,17 @@ After=network.target
 [Service]
 Type=simple
 User=pi
-ExecStart=/usr/bin/node /home/network-monitor/app.js
+ExecStart=/usr/bin/node /home/pi/network-monitor/app.js
 Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
 ```
-4. `sudo systemctl daemon-reload`
-5. `sudo systemctl start network-monitor`
-6. `sudo systemctl enable network-monitor`
-7. To view status: `sudo systemctl status network-monitor`  
+3. `sudo systemctl daemon-reload`
+4. `sudo systemctl start network-monitor`
+5. `sudo systemctl enable network-monitor`
+6. To view status: `sudo systemctl status network-monitor`  
+7. To restart: `sudo systemctl restart network-monitor`  
 (See [this nodesource.com article](https://nodesource.com/blog/running-your-node-js-app-with-systemd-part-1/) for more info.)  
 
 ## Development

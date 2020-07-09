@@ -1,5 +1,5 @@
 const express = require('express');
-let mysql = require('mysql');
+const mysql = require('mysql');
 
 const config = require('../config.json');
 
