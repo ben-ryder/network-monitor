@@ -3,43 +3,40 @@
 {% block content %}
 <h1>Internet Monitor</h1>
 
-<form id="filterForm" action="/" method="get" class="filter-section">
-    <div>
-        <label for="startDate">Start Date:</label>
-        <input type="date" id="startDate" name="startDate" value="{{ filterValues.startDate }}">
-    </div>
-    <div>
-        <label for="startTime">Start Time:</label>
-        <input type="time" id="startTime" name="startTime" value="{{ filterValues.startTime }}">
-    </div>
-    <p>&#8594;</p>
-    <div>
-        <label for="endDate">End Date:</label>
-        <input type="date" id="endDate" name="endDate" value="{{ filterValues.endDate }}">
-    </div>
-    <div>
-        <label for="endTime">End Time:</label>
-        <input type="time" id="endTime" name="endTime" value="{{ filterValues.endTime }}">
-    </div>
-    <div>
-        <button id="filterReset" value="filterReset">Reset All</button>
-        <button id="filterSubmit" type="submit" value="filterSubmit">Filter</button>
-    </div>
-</form>
+<section class="section">
+    <form id="filterForm" action="/" method="get" class="filter-section">
+        <div>
+            <label for="startDate">Start Date:</label>
+            <input type="date" id="startDate" name="startDate" value="{{ filterValues.startDate }}">
+        </div>
+        <div>
+            <label for="startTime">Start Time:</label>
+            <input type="time" id="startTime" name="startTime" value="{{ filterValues.startTime }}">
+        </div>
+        <div>
+            <label for="endDate">End Date:</label>
+            <input type="date" id="endDate" name="endDate" value="{{ filterValues.endDate }}">
+        </div>
+        <div>
+            <label for="endTime">End Time:</label>
+            <input type="time" id="endTime" name="endTime" value="{{ filterValues.endTime }}">
+        </div>
+        <div>
+            <button id="filterReset" value="filterReset">Reset All</button>
+            <button id="filterSubmit" type="submit" value="filterSubmit">Filter</button>
+        </div>
+    </form>
+</section>
 
-<h2>Graphs (todo)</h2>
-<h3>Download and Upload Speeds</h3>
-<h3>Ping</h3>
-
-<h2>Test List</h2>
-<div id="test-list" class="test-list">
-    <div class="test">
-        <p>Timestamp (date - time)</p>
-        <p>Ping (ms)</p>
-        <p>Download (Mbps)</p>
-        <p>Upload (Mbps)</p>
-    </div>
-    {% for test in tests | reverse %}
+<section class="section">
+    <div class="test-list">
+        <div class="test-headers">
+            <p class="test-header">Timestamp (date - time)</p>
+            <p class="test-header">Ping (ms)</p>
+            <p class="test-header">Download (Mbps)</p>
+            <p class="test-header">Upload (Mbps)</p>
+        </div>
+        {% for test in tests | reverse %}
         <div class="test">
             <div class="test__field-group test__field-group--timestamp">
                 <p class="test__field test__field--date">{{ test.test_date }}</p>
@@ -49,8 +46,9 @@
             <p class="test__field test__field--download test__field--unit-mbps">{{ test.download_speed }}</p>
             <p class="test__field test__field--upload test__field--unit-mbps">{{ test.upload_speed }}</p>
         </div>
-    {% endfor %}
-</div>
+        {% endfor %}
+    </div>
+</section>
 
 <script src="/js/filter-submit.js"></script>
 

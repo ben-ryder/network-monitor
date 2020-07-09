@@ -13,14 +13,12 @@
 @import "atoms/input";
 @import "atoms/textarea";
 
+@import "components/filter-section";
 @import "components/test-list";
 
-code {
-  white-space: pre;
-}
+@import "layout/section";
 
-.filter-section {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+h1 {
+  text-align: center;
+  padding: 20px 0;
 }

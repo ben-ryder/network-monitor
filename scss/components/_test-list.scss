@@ -1,35 +1,42 @@
-@mixin unitStyle($unit){
-  &::after {
-    content: $unit;
-    font-size: 0.8rem;
-    padding-left: 5px;
+@mixin row(){
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #ddd;
+
+  & > * {
+    flex: 1;
+    text-align: center;
   }
 }
 
-
 .test-list {
-  border-top: 1px solid #888;
 
-  & .test {
-    display: flex;
-    border-bottom: 1px solid #888;
-    padding: 15px 0;
+  .test-headers {
+    @include row();
 
-    & > * {
-      flex: 1;
-      text-align: center;
+    .test-header {
+      font-weight: bold;
+    }
+  }
+
+  .test {
+    @include row();
+
+    &__field-group {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     &__field {
-      &--date, &--time {
-        display: inline-block;
-      }
-
       &--date {
         &::after {
-          content: " - ";
+          content: "-";
+          padding: 0 5px;
         }
       }
     }
   }
+
 }
