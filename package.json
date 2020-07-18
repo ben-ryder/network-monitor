@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon app"
+    "start": "nodemon app",
+    "build": "gulp build",
+    "deploy-sysd": "gulp build && sudo systemctl restart network-monitor"
   },
   "dependencies": {
     "express": "~4.16.1",

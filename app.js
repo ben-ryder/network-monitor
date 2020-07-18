@@ -30,6 +30,9 @@ app.use(function (req, res, next) {
 const homeRoute = require('./routes/home');
 app.use('/', homeRoute);
 
+const apiRoute = require('./routes/api');
+app.use('/api', apiRoute);
+
 
 app.use(function (req, res, next) {
   res.status(404).render('message.html', {

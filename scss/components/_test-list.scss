@@ -10,15 +10,36 @@
   }
 }
 
-.test-list {
+.test-headers {
+  @include row();
+  align-items: flex-start;
 
-  .test-headers {
-    @include row();
+  .test-header {
+    font-weight: bold;
+    font-size: 1.1rem;
 
-    .test-header {
-      font-weight: bold;
+    &::after {
+      display: block;
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    &--unit-ms {
+      &::after {
+        content: "(ms)";
+      }
+    }
+    &--unit-mbps {
+      &::after {
+        content: "(Mbps)";
+      }
     }
   }
+}
+
+
+.test-list {
+  padding: 0 10px;
 
   .test {
     @include row();
@@ -27,14 +48,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
-    }
 
-    &__field {
-      &--date {
-        &::after {
-          content: "-";
-          padding: 0 5px;
-        }
+      &--timestamp {
+        flex-direction: column-reverse;
       }
     }
   }

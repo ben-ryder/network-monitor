@@ -1,0 +1,37 @@
+.filter-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+
+  &__item {
+    margin-bottom: 10px;
+  }
+
+  &__section {
+    &--submit {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 10px;
+
+      & > * {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  @media (min-width: 800px) {
+    max-width: 650px;
+    flex-direction: row;
+
+    &__section {
+      width: 50%;
+      padding: 0 5px;
+      &--submit {
+        margin-left: auto;
+        padding-right: 5px;
+      }
+    }
+  }
+}
