@@ -4,12 +4,11 @@ The results can then be viewed and filtered on the site in a list or graph forma
 
 ## Setup and Installation
 
-**Prerequisites**  
-- [speedtest-cli](https://github.com/sivel/speedtest-cli) - The base program run to get speed test results. Assuming you have python & pip you can use `pip install speedtest-cli`.
-
-**MariaDB Installation and Setup**  
-I recommend using [MariaDB](https://mariadb.org/) for a MySQL server, although you can use an alternative.
+### Database Setup
+I recommend using [MariaDB](https://mariadb.org/) as a MySQL server, although you can use an alternative.
 See [here](https://downloads.mariadb.org/) for downloads/installation instructions.
+
+#### Example Initial MariaDB Setup
 This is an example installation for Ubuntu:
 - `sudo apt -y install mariadb-server`  
 - `sudo mysql_secure_installation` 
@@ -23,6 +22,7 @@ This is an example installation for Ubuntu:
 - `GRANT ALL ON *.* TO admin@localhost IDENTIFIED BY 'password' WITH GRANT OPTION;` 
 - `FLUSH PRIVILEGES;`
 
+### network-monitor Database Setup
 **Network Monitor User & Database Setup**
 - `CREATE USER network_monitor@localhost IDENTIFIED BY 'password';`
 - `CREATE DATABASE network_monitor;`
@@ -53,14 +53,15 @@ CREATE TABLE IF NOT EXISTS speed_tests (
 +----------------+-----------------------+------+-----+---------+----------------+
 ```
 
-**Project and Configuration Setup**
-- `npm install`
+### Project Setup
+- Run `npm install` to setup the project.
 - Copy `example.config.json` to `config.json` and edit if necessary.
 - Build the website with `gulp build`
-- `nodemon app` to run the application.
+- Use `node app` to run the application.
 
-**Running server in background**  
+## Running server in the background
 There are many ways to get the server to run in the background, but I use [systemd](https://systemd.io/).
+The setup is shown below:
 
 1. `sudo vim /lib/systemd/system/network-monitor.service`
 2 Add the following:
@@ -87,7 +88,8 @@ WantedBy=multi-user.target
 (See [this nodesource.com article](https://nodesource.com/blog/running-your-node-js-app-with-systemd-part-1/) for more info.)  
 
 ## Development
-
-broswer-sync  
-nodemon                                             
-gulp
+All development can be done through the gulp task `gulp develop`.
+This task bundles:
+- broswer-sync refresh for templates & styling. 
+- nodemon for node server restarting.                                     
+- gulp watch for sass changes
