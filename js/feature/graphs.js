@@ -22,20 +22,18 @@ document.querySelector("#filterForm").addEventListener('submit', (e) => {
 
 function setupGraphs(tests){
     let layout = {
-        title: {
-            text: '<b>Internet Speeds (Mbps)</b>',
-            font: {
-                family: 'Muli',
-                size: 20,
-                color: "#000"
-            }
-        },
+        title: false,
         showlegend: true,
         legend: {
             "orientation": "h",
             y: -0.2,
         },
-
+        margin: {
+            l: 10,
+            r: 10,
+            b: 0,
+            t: 0,
+        }
     }
 
     let config = {
@@ -77,7 +75,7 @@ function setupGraphs(tests){
 
     }
 
-    Plotly.newPlot('testGraph', [downloadTrace, uploadTrace], layout, config);
+    Plotly.newPlot('speedtest-graph', [downloadTrace, uploadTrace], layout, config);
 
 }
 

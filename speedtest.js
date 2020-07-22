@@ -1,3 +1,4 @@
+const speedTest = require('speedtest-net');
 const mysql = require('mysql');
 const exec = require('child_process').exec;
 
@@ -15,20 +16,40 @@ connection.connect(function(err) {
     if (err) throw err
 });
 
-function bitsToMegaBits(bits) {
-    return bits / 1000000
+function bytesPerSecondToMbps(bytesPerSecond) {
+    return bytesPerSecond / 125000
+}
+
+function parseTimestamp(timestamp) {
+
+    let date =
+        timestamp.getFullYear() + "-" +
+        ("0" + (timestamp.getMonth() + 1)).slice(-2) + "-" +
+        ("0" + timestamp.getDate()).slice(-2);
+
+    let time =
+        ("0" + timestamp.getHours()).slice(-2) + ":" +
+        ("0" + timestamp.getMinutes()).slice(-2) + ":" +
+        ("0" + timestamp.getSeconds()).slice(-2);
+
+    return {
+        date: date,
+        time: time,
+    }
 }
 
 function saveResult(result){
     let insertQuery = "INSERT INTO speed_tests (test_date, test_time, ping_speed, download_speed, upload_speed) VALUES (?)";
 
+    let parsedTimestamp = parseTimestamp(result.timestamp);
+
     let queryData = [
         [
-            result.date,
-            result.time,
-            result.ping,
-            result.download,
-            result.upload
+            parsedTimestamp.date,
+            parsedTimestamp.time,
+            result.ping.latency,
+            bytesPerSecondToMbps(result.download.bandwidth),
+            bytesPerSecondToMbps(result.upload.bandwidth)
         ]
     ];
 
@@ -40,29 +61,12 @@ function saveResult(result){
 }
 
 function runSpeedTest(){
-    exec("speedtest-cli --json", function(error, stdout, stderr){
-        if (error){
-            throw error;
-        }
-        else if (stderr){
-            throw stderr;
-        }
-        else {
-            let rawResults = JSON.parse(stdout)
-
-            let date = rawResults.timestamp.substring(0, 10);
-            let time = rawResults.timestamp.substring(11, 16);
-
-            let processedResult = {
-                date: date,
-                time: time,
-                ping: rawResults.ping,
-                download: bitsToMegaBits(rawResults.download).toPrecision(4),
-                upload: bitsToMegaBits(rawResults.upload).toPrecision(4),
-            }
-            saveResult(processedResult);
-        }
-    });
+    speedTest({
+        acceptLicense: true,
+        acceptGdpr: true,
+    })
+        .then((result) => { saveResult(result) })
+        .catch((err) => { console.log(err.message); })
 }
 
 module.exports = {

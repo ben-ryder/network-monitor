@@ -6,7 +6,7 @@ const path = require('path');
 const config = require('./config.json');
 const speedtest = require('./speedtest');
 
-const app = express()
+const app = express();
 
 // Setting up view / template engine
 app.set('view engine', 'html');
