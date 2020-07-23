@@ -7,12 +7,11 @@ By running this site you also agree to their terms.
 
 ## Setup and Installation
 
-### Database Setup
-I recommend using [MariaDB](https://mariadb.org/) as a MySQL server, although you can use an alternative.
-See [here](https://downloads.mariadb.org/) for downloads/installation instructions.
+## Database Setup
+This site requires a MySQL server to be running. I recommend using [MariaDB](https://mariadb.org/) although you can use an alternative.
+See [here](https://downloads.mariadb.org/) for installation instructions or look below for the Linux instructions.
 
-#### Example Initial MariaDB Setup
-This is an example installation for Ubuntu:
+### MariaDB Setup on Linux (debian based)
 - `sudo apt -y install mariadb-server`  
 - `sudo mysql_secure_installation` 
     - Skip root password as none has been set yet. 
@@ -25,8 +24,8 @@ This is an example installation for Ubuntu:
 - `GRANT ALL ON *.* TO admin@localhost IDENTIFIED BY 'password' WITH GRANT OPTION;` 
 - `FLUSH PRIVILEGES;`
 
-### network-monitor Database Setup
-**Network Monitor User & Database Setup**
+### Database Setup
+**User & Database Setup**
 - `CREATE USER network_monitor@localhost IDENTIFIED BY 'password';`
 - `CREATE DATABASE network_monitor;`
 - `GRANT ALL PRIVILEGES ON network_monitor.* TO network_monitor@localhost;`
@@ -62,7 +61,7 @@ CREATE TABLE IF NOT EXISTS speed_tests (
 - Build the website with `gulp build`
 - Use `node app` to run the application.
 
-## Running server in the background
+## Running the server in the background
 There are many ways to get the server to run in the background, but I use [systemd](https://systemd.io/).
 The setup is shown below:
 
