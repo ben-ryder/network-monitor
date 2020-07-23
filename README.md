@@ -1,6 +1,9 @@
 # network-monitor
-A simple website built with [NodeJS](https://nodejs.org/en/), [ExpressJS](https://expressjs.com/) and [MySQL](https://www.mysql.com/) / [MariaDB](https://mariadb.org/) to automatically measure your network speeds.
+A simple website built with [Node.js](https://nodejs.org/en/), [Express.js](https://expressjs.com/) and [MySQL](https://www.mysql.com/) / [MariaDB](https://mariadb.org/) to automatically measure your network speeds.
 The results can then be viewed and filtered on the site in a list or graph format.
+
+**Note**: This project uses [speedtest-net](https://www.npmjs.com/package/speedtest-net) to run the speed tests. When you run the site [Ookla](https://www.ookla.com/consumer)'s [Terms of Use](https://www.speedtest.net/about/terms) and [Privacy Policy](https://www.speedtest.net/about/privacy) are automatically accepted.
+By running this site you also agree to their terms.
 
 ## Setup and Installation
 
