@@ -1,26 +1,8 @@
 {
-  "name": "speedtest",
-  "version": "0.0.0",
+  "name": "@ben-ryder/network-monitor",
+  "version": "1.0.0",
   "private": true,
-  "scripts": {
-    "start": "nodemon app",
-    "build": "gulp build",
-    "deploy-sysd": "gulp build && sudo systemctl restart network-monitor"
-  },
-  "dependencies": {
-    "express": "~4.16.1",
-    "mysql": "^2.18.1",
-    "node-cron": "^2.0.3",
-    "nunjucks": "^3.2.1",
-    "speedtest-net": "^2.1.1"
-  },
-  "devDependencies": {
-    "browser-sync": "^2.26.7",
-    "del": "^5.1.0",
-    "gulp": "^4.0.2",
-    "gulp-concat": "^2.6.1",
-    "gulp-nodemon": "^2.5.0",
-    "gulp-sass": "^4.1.0",
-    "nodemon": "^2.0.4"
-  }
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {}
 }

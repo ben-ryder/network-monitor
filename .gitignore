@@ -1,5 +1,5 @@
-node_modules/
+# IDE
 .idea
 
-dist
-config.json
+# Node
+node_modules
